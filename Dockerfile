@@ -40,6 +40,7 @@ RUN set -ex; \
 
             # required by composer
             git \
+            unzip \
             zlib1g-dev \
 
             # php-ext-amqp

@@ -25,6 +25,7 @@ Based on php 7.2 (7.2.8)
 * cron
 * nano
 * git
+* unzip
 
 ## php.ini
 * memory_limit=-1
