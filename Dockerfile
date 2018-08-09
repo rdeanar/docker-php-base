@@ -44,6 +44,9 @@ RUN set -ex; \
 
             # php-ext-amqp
             gcc make pkg-config librabbitmq-dev \
+
+            # Fix terminal init size
+            xterm \
         --no-install-recommends \
 
 
@@ -111,7 +114,9 @@ RUN composer config -g github-oauth.github.com "$GITHUB_API_TOKEN" \
 && echo "memory_limit=-1" > "$PHP_INI_DIR/conf.d/memory-limit.ini" \
     && echo "date.timezone=${PHP_TIMEZONE:-Europe/Moscow}" > "$PHP_INI_DIR/conf.d/date_timezone.ini"  \
     && echo "post_max_size=50M\nupload_max_filesize=50M" > "$PHP_INI_DIR/conf.d/upload.ini" \
-    && echo "expose_php=0" > "$PHP_INI_DIR/conf.d/expose_php.ini"
+    && echo "expose_php=0" > "$PHP_INI_DIR/conf.d/expose_php.ini"\
+    # Fix terminal init size
+    && echo "\n\neval \$(resize)\n" >> /root/.bashrc
 
 
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
