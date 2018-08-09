@@ -89,11 +89,8 @@ RUN set -ex; \
     # xdebug
     && pecl install xdebug-2.6.0beta1 && docker-php-ext-enable xdebug \
 
-    # pdo opcache bcmath mcrypt bz2 pcntl sockets
-    && docker-php-ext-install -j$(nproc) pdo_mysql opcache bcmath bz2 pcntl \
-
-    # zip (required by composer)
-    && docker-php-ext-install -j$(nproc) zip \
+    # pdo opcache bcmath mcrypt bz2 pcntl exif zip (required by composer)
+    && docker-php-ext-install -j$(nproc) pdo_mysql opcache bcmath bz2 pcntl exif \
 
 # Cleanup to keep the images size small
 &&  apt-get purge -y \
