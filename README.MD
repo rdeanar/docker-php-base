@@ -15,6 +15,7 @@ Based on php 7.2 (7.2.8)
 * pcntl
 * zip
 * exif
+* apcu
 
 ## Extras
 * composer

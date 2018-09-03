@@ -90,8 +90,11 @@ RUN set -ex; \
     # xdebug
     && pecl install xdebug-2.6.0beta1 && docker-php-ext-enable xdebug \
 
+    # apcu
+    && pecl install apcu && docker-php-ext-enable apcu \
+
     # pdo opcache bcmath mcrypt bz2 pcntl exif zip (required by composer)
-    && docker-php-ext-install -j$(nproc) pdo_mysql opcache bcmath bz2 pcntl exif \
+    && docker-php-ext-install -j$(nproc) pdo_mysql opcache bcmath bz2 pcntl exif zip  \
 
 # Cleanup to keep the images size small
 &&  apt-get purge -y \
