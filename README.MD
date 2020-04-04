@@ -16,6 +16,7 @@ Based on php 7.4 fpm (7.4.4)
 * zip
 * exif
 * apcu
+* rdkafka
 
 ## Extras
 * composer

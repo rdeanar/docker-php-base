@@ -95,6 +95,16 @@ RUN set -ex; \
     # Create base directory
     && mkdir -p /var/www/html
 
+# RDKafka extension
+RUN git clone https://github.com/edenhill/librdkafka.git /tmp/librdkafka \
+    && cd /tmp/librdkafka \
+    && ./configure \
+    && make \
+    && make install \
+    && rm -rf /tmp/librdkafka \
+    && pecl install rdkafka \
+    && echo "extension=rdkafka.so" > "$PHP_INI_DIR/conf.d/rdkafka_ext.ini"
+
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
