@@ -1,13 +1,13 @@
 # php docker image
 
-Based on php 7.2 (7.2.8)
+Based on php 7.4 fpm (7.4.4)
 
 ## Ext
-* ext-amqp
-* intl (ICU 61.1)
+* memcached
+* intl (ICU 64.2)
 * gd
-* imagick 3.4.3
-* xdebug 2.6.0beta1
+* imagick 3.4.4
+* xdebug 2.9.0
 * pdo mysql
 * opcache
 * bcmath
@@ -25,6 +25,7 @@ Based on php 7.2 (7.2.8)
 * supervisor
 * cron
 * nano
+* vim
 * git
 * unzip
 
